@@ -88,4 +88,21 @@ public class GameOfLifeTest {
                 + "0|0|0", result);
     }
 
+    @Test
+    void return_empty_matrix_given_corners_only()
+    {
+        var gameOfLife = new GameOfLife();
+        var result = gameOfLife.checkNewGeneration(
+            "1|0|1\n"
+                + "0|0|0\n"
+                + "1|0|1"
+
+        );
+
+        assertEquals(
+            "0|0|0\n"
+                + "0|0|0\n"
+                + "0|0|0", result);
+    }
+
 }
