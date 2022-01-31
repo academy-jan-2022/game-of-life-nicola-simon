@@ -15,4 +15,21 @@ public class GameOfLifeTest {
         assertEquals(result, "0");
     }
 
+    @Test
+    void return_all_still_live_after_one_iteration()
+    {
+        var gameOfLife = new GameOfLife();
+        var result = gameOfLife.checkNewGeneration(
+            "0|1|0\n"
+                + "0|1|1\n"
+                + "0|1|0"
+
+            );
+
+        assertEquals(result,
+            "0|1|0\n"
+            + "0|1|1\n"
+            + "0|1|0");
+    }
+
 }
