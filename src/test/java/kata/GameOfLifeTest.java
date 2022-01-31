@@ -49,4 +49,21 @@ public class GameOfLifeTest {
                 + "0|0|0", result);
     }
 
+    @Test
+    void return_only_middle_cell_alive_given_cells_in_reverse_diagonal()
+    {
+        var gameOfLife = new GameOfLife();
+        var result = gameOfLife.checkNewGeneration(
+            "0|0|1\n"
+                + "0|1|0\n"
+                + "1|0|0"
+
+        );
+
+        assertEquals(
+            "0|0|0\n"
+                + "0|1|0\n"
+                + "0|0|0", result);
+    }
+
 }
