@@ -3,18 +3,9 @@ package kata;
 public class GameOfLife {
 
     public String checkNewGeneration(String input) {
-        if (input.equals("1|0|1\n"
-            + "0|1|0\n"
-            + "1|0|1")) {
-            return "0|0|0\n"
-                + "0|0|0\n"
-                + "0|0|0";
-        }
 
-
-        if (input.equals("0|0|0\n"
-            + "0|1|0\n"
-            + "0|0|0")) {
+        long countOfAliveCells = input.chars().filter(ch -> ch == '1').count();
+        if (countOfAliveCells == 1 || countOfAliveCells == 5) {
             return "0|0|0\n"
                 + "0|0|0\n"
                 + "0|0|0";
