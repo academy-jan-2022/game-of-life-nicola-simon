@@ -2,7 +2,7 @@ package kata;
 
 public class GameOfLife {
 
-    public String myMethod(String input) {
+    public String checkNewGeneration(String input) {
         return "0";
     }
 }

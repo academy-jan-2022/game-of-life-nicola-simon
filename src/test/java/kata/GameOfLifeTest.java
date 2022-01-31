@@ -10,8 +10,9 @@ public class GameOfLifeTest {
     void return_empty_matrix_given_only_one_live_cell()
     {
         var gameOfLife = new GameOfLife();
-         var result = gameOfLife.myMethod("1");
+         var result = gameOfLife.checkNewGeneration("1");
 
         assertEquals(result, "0");
     }
+
 }
