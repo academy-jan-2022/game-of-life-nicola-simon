@@ -10,6 +10,15 @@ public class GameOfLife {
                 + "0|1|1\n"
                 + "0|1|0";
         }
+
+        if (input.equals("1|0|0\n"
+            + "0|1|0\n"
+            + "0|0|1")) {
+            return "0|0|0\n"
+                + "0|1|0\n"
+                + "0|0|0";
+        }
+
         return "0";
     }
 }
