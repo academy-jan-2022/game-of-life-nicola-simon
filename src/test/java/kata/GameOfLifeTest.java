@@ -10,9 +10,14 @@ public class GameOfLifeTest {
     void return_empty_matrix_given_only_one_live_cell()
     {
         var gameOfLife = new GameOfLife();
-         var result = gameOfLife.checkNewGeneration("1");
+         var result = gameOfLife.checkNewGeneration(
+             "0|0|0\n"
+             + "0|1|0\n"
+             + "0|0|0");
 
-        assertEquals("0", result);
+        assertEquals("0|0|0\n"
+            + "0|0|0\n"
+            + "0|0|0", result);
     }
 
     @Test
