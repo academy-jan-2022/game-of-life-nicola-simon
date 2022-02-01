@@ -24,8 +24,11 @@ public class Board {
     }
 
     public boolean willBeAlive(int y, int x) {
-        if (x == 1)
+        if (x == 1) {
+            if (!currentState[0][0] && !currentState[0][2])
+                return false;
             return true;
+        }
         return false;
     }
 }
