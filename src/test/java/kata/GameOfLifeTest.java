@@ -218,4 +218,19 @@ public class GameOfLifeTest {
 
         assertTrue( result[0][0]);
     }
+
+    @Test
+    void keep_alive_first_row_right_cell_given_middle_right_and_middle_top_neighbours_alive()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {false, true, true},
+            {false, false, true},
+            {false, false, false}
+        };
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[0][2]);
+    }
+
 }
