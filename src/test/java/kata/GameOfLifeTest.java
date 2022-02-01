@@ -140,7 +140,7 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void keep_alive_top_right_cell_given_top_left_and_top_right_neighbours()
+    void keep_alive_second_row_middle_cell_given_top_left_and_top_right_neighbours()
     {
         var gameOfLife = new GameOfLife();
         Boolean[][] currentMatrix = {

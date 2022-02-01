@@ -8,7 +8,7 @@ public class GameOfLife {
             int topRowCount = counterAliveNeighbours(input[0]);
             int middleRowCount = counterAliveNeighbours(input[1]);
 
-            if (middleRowCount >= 2 && topRowCount == 1){
+            if (middleRowCount + topRowCount > 2 && middleRowCount + topRowCount < 5){
                 return new boolean[][] {
                     getRow(input[0]),
                     {false, true, false}};
