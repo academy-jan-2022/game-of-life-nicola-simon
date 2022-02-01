@@ -126,4 +126,6 @@ public class GameOfLifeTest {
 
         assertTrue( result[1][1]);
     }
+
+
 }

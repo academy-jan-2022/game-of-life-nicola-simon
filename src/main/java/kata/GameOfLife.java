@@ -6,12 +6,9 @@ public class GameOfLife {
 
         if (input.length == 2 ) {
             int topRowCount = counterAliveNeighbours(input[0]);
-            if (input[1][2] && topRowCount == 1){
-                return new boolean[][] {
-                    getRow(input[0]),
-                    {false, true, false}};
-            }
-            if (input[1][0] && topRowCount == 1){
+            int middleRowCount = counterAliveNeighbours(input[1]);
+
+            if (middleRowCount >= 2 && topRowCount == 1){
                 return new boolean[][] {
                     getRow(input[0]),
                     {false, true, false}};
