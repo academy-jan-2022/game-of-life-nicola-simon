@@ -6,20 +6,11 @@ public class GameOfLife {
 
         var initialBoard = new Board(input);
 
-        if (initialBoard.getNumberOfRows() == 3 && initialBoard.getCell(0, 0)) {
+        if (initialBoard.getNumberOfRows() == 3) {
             return new Boolean[][]{
                 {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0), isCellAlive(initialBoard,2,0)},
                 {isCellAlive(initialBoard,0,1), isCellAlive(initialBoard,1,1), isCellAlive(initialBoard,2,1)},
                 {isCellAlive(initialBoard,0,2), isCellAlive(initialBoard,1,2), isCellAlive(initialBoard,2,2)},
-            };
-        }
-
-        if (initialBoard.getNumberOfRows() == 3) {
-
-            return new Boolean[][]{
-                getRow(initialBoard.getRowAtIndex(0)),
-                {false, isCellAlive(initialBoard,1,1), false},
-                getRow(initialBoard.getRowAtIndex(2))
             };
         }
 
