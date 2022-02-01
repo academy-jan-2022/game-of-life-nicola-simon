@@ -38,7 +38,7 @@ public class Board {
 
     public Boolean[] getNeighbours(int i, int i1) {
         if (currentState[0].length > 1) {
-            return new Boolean[1];
+            return new Boolean[] { true };
         }
 
         return new Boolean[0];
