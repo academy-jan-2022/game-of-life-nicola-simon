@@ -104,4 +104,16 @@ public class BoardShould {
         assertTrue(neigbours[0]);
     }
 
+    @Test void
+    return_one_correct_neighbour_for_top_cell_given_one_bottom_row_cell(){
+        Boolean[][] currentMatrix = {
+            {true},
+            {false}
+        };
+        var board = new Board(currentMatrix);
+        var neigbours = board.getNeighbours(0,0);
+        assertEquals(1, neigbours.length);
+        assertFalse(neigbours[0]);
+    }
+
 }
