@@ -37,6 +37,6 @@ public class Board {
     }
 
     public Boolean[] getNeighbours(int i, int i1) {
-        throw new UnsupportedOperationException();
+        return new Boolean[0];
     }
 }
