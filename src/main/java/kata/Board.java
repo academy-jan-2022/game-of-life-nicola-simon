@@ -24,9 +24,7 @@ public class Board {
                 return true;
             }
 
-            if (!currentState[0][0] && !currentState[0][2])
-                return false;
-            return true;
+            return currentState[0][0] || currentState[0][2];
         }
         return false;
     }
