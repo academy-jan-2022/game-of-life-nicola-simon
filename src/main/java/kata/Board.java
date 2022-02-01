@@ -44,11 +44,14 @@ public class Board {
         boolean isOnRightEdge = currentState[0].length - 1 == x;
         boolean isOnLeftEdge = x == 0;
         boolean isOnTopEdge = y == 0;
+        boolean isOnBottomEdge = currentState.length - 1 == y;
 
         if (!isOnTopEdge) {
             neighbours.add(currentState[y-1][x]);
         }
-
+        if (!isOnBottomEdge){
+            neighbours.add(currentState[y+1][x]);
+        }
         if (!isOnRightEdge) {
             neighbours.add(currentState[y][x+1]);
         }
