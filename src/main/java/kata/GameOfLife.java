@@ -30,25 +30,25 @@ public class GameOfLife {
         if (board.getNumberOfRows() == 3 && board.getCell(0, 0)) {
             return new boolean[][] {
                 {isCellAlive(board), false, false},
-                getRow(input[1]),
-                getRow(input[2])};
+                getRow(board.getRowAtIndex(1)),
+                getRow(board.getRowAtIndex(2))};
         }
 
         if (board.getNumberOfRows() == 3 ) {
 
             return new boolean[][] {
-                getRow(input[0]),
+                getRow(board.getRowAtIndex(0)),
                 {false, isCellAlive(board), false},
-                getRow(input[2])};
+                getRow(board.getRowAtIndex(2))};
             }
 
         if (board.getNumberOfRows() == 2 ) {
             return new boolean[][] {
-                getRow(input[0]),
+                getRow(board.getRowAtIndex(0)),
                 {false, isCellAlive(board), false}};
         }
 
-        return new boolean[][]{getRow(input[0])};
+        return new boolean[][]{getRow(board.getRowAtIndex(0))};
     }
 
     private boolean isCellAlive(Board board) {
