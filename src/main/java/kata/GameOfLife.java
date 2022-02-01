@@ -7,8 +7,24 @@ public class GameOfLife {
     public Boolean[][] checkNewGeneration(Boolean[][] input) {
 
         var initialBoard = new Board(input);
+        Boolean[][] newBoard = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
 
-        if (initialBoard.getNumberOfRows() == 3) {
+        for (int z = 0; z < initialBoard.getNumberOfRows(); z++){
+            var newRow = new ArrayList<Boolean>();
+
+            for (int i = 0; i < initialBoard.getNumberOfColumns(); i++){
+                newRow.add(isCellAlive(initialBoard,i,z));
+            }
+
+            newBoard[z]=(
+                newRow.toArray(new Boolean[0])
+            );
+        }
+
+        return newBoard;
+
+
+        /*if (initialBoard.getNumberOfRows() == 3) {
             return new Boolean[][]{
                 {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0), isCellAlive(initialBoard,2,0)},
                 {isCellAlive(initialBoard,0,1), isCellAlive(initialBoard,1,1), isCellAlive(initialBoard,2,1)},
@@ -31,7 +47,7 @@ public class GameOfLife {
 
         return new Boolean[][]{
             foo.toArray(new Boolean[0])
-        };
+        };*/
 
     }
 
