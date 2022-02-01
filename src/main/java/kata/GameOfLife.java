@@ -8,9 +8,9 @@ public class GameOfLife {
 
         if (initialBoard.getNumberOfRows() == 3 && initialBoard.getCell(0, 0)) {
             return new Boolean[][]{
-                {isCellAlive(initialBoard,0,0), false, false},
-                getRow(initialBoard.getRowAtIndex(1)),
-                getRow(initialBoard.getRowAtIndex(2))
+                {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0), isCellAlive(initialBoard,2,0)},
+                {isCellAlive(initialBoard,0,1), isCellAlive(initialBoard,1,1), isCellAlive(initialBoard,2,1)},
+                {isCellAlive(initialBoard,0,2), isCellAlive(initialBoard,1,2), isCellAlive(initialBoard,2,2)},
             };
         }
 
