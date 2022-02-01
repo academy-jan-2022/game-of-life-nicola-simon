@@ -26,14 +26,14 @@ public class GameOfLife {
         }
     }
 
-    public boolean[][] checkNewGeneration(Boolean[][] input) {
+    public Boolean[][] checkNewGeneration(Boolean[][] input) {
 
         var initialBoard = new Board(input);
         Boolean nextMatrix[][] = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
         var newGenerationBoard = new Board(nextMatrix);
 
         if (initialBoard.getNumberOfRows() == 3 && initialBoard.getCell(0, 0)) {
-            return new boolean[][] {
+            return new Boolean[][] {
                 {isCellAlive(initialBoard), false, false},
                 getRow(initialBoard.getRowAtIndex(1)),
                 getRow(initialBoard.getRowAtIndex(2))};
@@ -41,22 +41,22 @@ public class GameOfLife {
 
         if (initialBoard.getNumberOfRows() == 3 ) {
 
-            return new boolean[][] {
+            return new Boolean[][] {
                 getRow(initialBoard.getRowAtIndex(0)),
                 {false, isCellAlive(initialBoard), false},
                 getRow(initialBoard.getRowAtIndex(2))};
             }
 
         if (initialBoard.getNumberOfRows() == 2 ) {
-            return new boolean[][] {
+            return new Boolean[][] {
                 getRow(initialBoard.getRowAtIndex(0)),
                 {false, isCellAlive(initialBoard), false}};
         }
 
-        return new boolean[][]{getRow(initialBoard.getRowAtIndex(0))};
+        return new Boolean[][]{getRow(initialBoard.getRowAtIndex(0))};
     }
 
-    private boolean isCellAlive(Board board) {
+    private Boolean isCellAlive(Board board) {
         int totalRowCount = getTotalRowCount(board);
         if (totalRowCount > 2
             && totalRowCount < 5) {
@@ -89,16 +89,16 @@ public class GameOfLife {
 
     }
 
-    private boolean[] getRow(Boolean[] input) {
+    private Boolean[] getRow(Boolean[] input) {
         if (input.length == 3 && input[0] && input[2]) {
-            return new boolean[]{false, true, false};
+            return new Boolean[]{false, true, false};
         }
 
-        return new boolean[]{false, false, false};
+        return new Boolean[]{false, false, false};
     }
 
-//    private boolean[] getRowNew(Boolean[][] input) {
-//        return new boolean[]{false, isCellAlive(input), false};
+//    private Boolean[] getRowNew(Boolean[][] input) {
+//        return new Boolean[]{false, isCellAlive(input), false};
 //    }
 
 
