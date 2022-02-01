@@ -170,7 +170,7 @@ public class GameOfLifeTest {
         Boolean[][] currentMatrix = {
             {false, false, false},
             {false, true, false},
-            {true, false, false}
+            {true, false, true}
         };
         var result = gameOfLife.checkNewGeneration(currentMatrix);
 
