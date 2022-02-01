@@ -176,4 +176,18 @@ public class GameOfLifeTest {
 
         assertTrue( result[1][1]);
     }
+
+    @Test
+    void kill_second_row_middle_cell_given_all_bottom_row_and_left_neighbours_alive()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {false, false, false},
+            {true, true, false},
+            {true, true, true}
+        };
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertFalse( result[1][1]);
+    }
 }
