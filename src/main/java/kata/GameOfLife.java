@@ -5,12 +5,12 @@ public class GameOfLife {
     public boolean[][] checkNewGeneration(Boolean[][] input) {
 
         if (input.length == 3 ) {
-            int topRowCount = counterAliveNeighbours(input[0]);
-            int middleRowCount = counterAliveNeighbours(input[1]);
-            int bottomRowCount = counterAliveNeighbours(input[2]);
+            int totalRowCount = counterAliveNeighboursAtRow(input[0])
+                + counterAliveNeighboursAtRow(input[1])
+                + counterAliveNeighboursAtRow(input[2]);
 
-            if (middleRowCount + topRowCount + bottomRowCount > 2
-                && middleRowCount + topRowCount < 5
+            if (totalRowCount > 2
+                && totalRowCount < 5
             ){
                 return new boolean[][] {
                     getRow(input[0]),
@@ -25,8 +25,8 @@ public class GameOfLife {
         }
 
         if (input.length == 2 ) {
-            int topRowCount = counterAliveNeighbours(input[0]);
-            int middleRowCount = counterAliveNeighbours(input[1]);
+            int topRowCount = counterAliveNeighboursAtRow(input[0]);
+            int middleRowCount = counterAliveNeighboursAtRow(input[1]);
 
             if (middleRowCount + topRowCount > 2 && middleRowCount + topRowCount < 5){
                 return new boolean[][] {
@@ -42,7 +42,7 @@ public class GameOfLife {
         return new boolean[][]{getRow(input[0])};
     }
 
-    private Integer counterAliveNeighbours(Boolean[] input) {
+    private Integer counterAliveNeighboursAtRow(Boolean[] input) {
         int counter = 0;
         for (Boolean aBoolean : input) {
             if (aBoolean) {
