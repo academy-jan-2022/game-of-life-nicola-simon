@@ -8,15 +8,12 @@ public class GameOfLife {
             return new boolean[][] {{false, true, false}};
         }
 
-        if (input[0].length == 3) {
-            return new boolean[][] {{false, false, false}};
+        boolean row[] = new boolean[input[0].length];
+        for (int i=0; i<input.length-1; i++) {
+            row[i] = false;
         }
 
-        if (input[0].length == 2) {
-            return new boolean[][] {{false, false}};
-        }
-
-        boolean outputMatrix[][] = {{false}};
+        boolean outputMatrix[][] = {row};
         return outputMatrix ;
     }
 }
