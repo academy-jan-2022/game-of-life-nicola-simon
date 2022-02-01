@@ -16,8 +16,8 @@ public class GameOfLife {
 
         if (initialBoard.getNumberOfRows() == 2) {
             return new Boolean[][]{
-                getRow(initialBoard.getRowAtIndex(0)),
-                {false, isCellAlive(initialBoard,1,1), false}
+                {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0), isCellAlive(initialBoard,2,0)},
+                {isCellAlive(initialBoard,0,1), isCellAlive(initialBoard,1,1), isCellAlive(initialBoard,2,1)},
             };
         }
 
