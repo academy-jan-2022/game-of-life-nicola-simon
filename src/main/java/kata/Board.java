@@ -42,9 +42,12 @@ public class Board {
     public Boolean[] getNeighbours(int x, int y) {
         var neighbours = new ArrayList<Boolean>();
         Boolean isOnRightEdge = currentState[0].length - 1 == x;
-
+        Boolean isOnLeftEdge = x == 0;
         if (!isOnRightEdge) {
             neighbours.add(currentState[y][x+1]);
+        }
+        if (!isOnLeftEdge){
+            neighbours.add(currentState[y][x-1]);
         }
         return neighbours.toArray(new Boolean[0]);
     }
