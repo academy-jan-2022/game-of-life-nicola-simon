@@ -127,6 +127,7 @@ public class BoardShould {
         var board = new Board(currentMatrix);
         var neighbours = board.getNeighbours(1,1);
         var aliveNeighbours = board.filterAliveNeighbours(neighbours);
+        assertEquals(3, neighbours.length);
         assertEquals(1, aliveNeighbours.length);
         assertTrue(aliveNeighbours[0]);
     }
