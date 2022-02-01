@@ -12,7 +12,7 @@ public class GameOfLife {
             }
 
             return new boolean[][] {
-                {false, false, false},
+                getRow(input[0]),
                 getRow(input[1])};
         }
 
