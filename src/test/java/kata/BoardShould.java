@@ -1,8 +1,8 @@
 package kata;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardShould {
     @Test void
@@ -44,5 +44,14 @@ public class BoardShould {
         var board = new Board(currentMatrix);
         var willBeAlive = board.willBeAlive(0, 1);
         assertTrue(willBeAlive);
+    }
+
+    @Test void
+    return_no_neighbours_for_single_cell() {
+        Boolean[][] currentMatrix = {{false}};
+        var board = new Board(currentMatrix);
+        var neighbours = board.getNeighbours(0, 0);
+        assertEquals(0, neighbours.length);
+
     }
 }
