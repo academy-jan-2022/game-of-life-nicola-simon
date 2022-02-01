@@ -24,6 +24,6 @@ public class Board {
     }
 
     public boolean willBeAlive(int y, int x) {
-        throw new RuntimeException("x");
+        return false;
     }
 }
