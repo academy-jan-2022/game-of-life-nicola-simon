@@ -27,7 +27,7 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void kepp_middle_cell_alive_with_two_neighbours()
+    void keep_middle_cell_alive_with_two_neighbours()
     {
         var gameOfLife = new GameOfLife();
         Boolean[][] currentMatrix = {{true, true, true}};
