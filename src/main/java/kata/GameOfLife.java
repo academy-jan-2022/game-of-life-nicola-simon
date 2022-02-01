@@ -17,38 +17,43 @@ public class GameOfLife {
             return currentState.length;
         }
 
-
         public Boolean[] getRowAtIndex(int index) {
             return currentState[index];
+        }
+
+        public int getNumberOfColumns() {
+            return currentState[0].length;
         }
     }
 
     public boolean[][] checkNewGeneration(Boolean[][] input) {
 
-        var board = new Board(input);
+        var initialBoard = new Board(input);
+        Boolean nextMatrix[][] = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
+        var nextBoard = new Board(nextMatrix);
 
-        if (board.getNumberOfRows() == 3 && board.getCell(0, 0)) {
+        if (initialBoard.getNumberOfRows() == 3 && initialBoard.getCell(0, 0)) {
             return new boolean[][] {
-                {isCellAlive(board), false, false},
-                getRow(board.getRowAtIndex(1)),
-                getRow(board.getRowAtIndex(2))};
+                {isCellAlive(initialBoard), false, false},
+                getRow(initialBoard.getRowAtIndex(1)),
+                getRow(initialBoard.getRowAtIndex(2))};
         }
 
-        if (board.getNumberOfRows() == 3 ) {
+        if (initialBoard.getNumberOfRows() == 3 ) {
 
             return new boolean[][] {
-                getRow(board.getRowAtIndex(0)),
-                {false, isCellAlive(board), false},
-                getRow(board.getRowAtIndex(2))};
+                getRow(initialBoard.getRowAtIndex(0)),
+                {false, isCellAlive(initialBoard), false},
+                getRow(initialBoard.getRowAtIndex(2))};
             }
 
-        if (board.getNumberOfRows() == 2 ) {
+        if (initialBoard.getNumberOfRows() == 2 ) {
             return new boolean[][] {
-                getRow(board.getRowAtIndex(0)),
-                {false, isCellAlive(board), false}};
+                getRow(initialBoard.getRowAtIndex(0)),
+                {false, isCellAlive(initialBoard), false}};
         }
 
-        return new boolean[][]{getRow(board.getRowAtIndex(0))};
+        return new boolean[][]{getRow(initialBoard.getRowAtIndex(0))};
     }
 
     private boolean isCellAlive(Board board) {
