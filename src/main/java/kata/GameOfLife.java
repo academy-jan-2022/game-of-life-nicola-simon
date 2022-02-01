@@ -4,6 +4,7 @@ public class GameOfLife {
 
     Board initialBoard;
 
+
     public Boolean[][] checkNewGeneration(Boolean[][] input) {
 
         initialBoard = new Board(input);
