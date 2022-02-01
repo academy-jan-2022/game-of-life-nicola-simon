@@ -5,7 +5,13 @@ public class GameOfLife {
     public boolean[][] checkNewGeneration(Boolean[][] input) {
 
         if (input.length == 2 ) {
-            if (input[1][2] && counterAliveNeighbours(input[0]) == 1){
+            int topRowCount = counterAliveNeighbours(input[0]);
+            if (input[1][2] && topRowCount == 1){
+                return new boolean[][] {
+                    getRow(input[0]),
+                    {false, true, false}};
+            }
+            if (input[1][0] && topRowCount == 1){
                 return new boolean[][] {
                     getRow(input[0]),
                     {false, true, false}};
