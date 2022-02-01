@@ -30,7 +30,7 @@ public class GameOfLife {
 
         var initialBoard = new Board(input);
         Boolean nextMatrix[][] = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
-        var nextBoard = new Board(nextMatrix);
+        var newGenerationBoard = new Board(nextMatrix);
 
         if (initialBoard.getNumberOfRows() == 3 && initialBoard.getCell(0, 0)) {
             return new boolean[][] {
@@ -53,7 +53,7 @@ public class GameOfLife {
                 {false, isCellAlive(initialBoard), false}};
         }
 
-        return new boolean[][]{getRow(initialBoard.getRowAtIndex(0))};
+        return new boolean[][]{getRow(newGenerationBoard.getRowAtIndex(0))};
     }
 
     private boolean isCellAlive(Board board) {
