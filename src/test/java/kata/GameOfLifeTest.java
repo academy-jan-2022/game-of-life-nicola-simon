@@ -151,4 +151,15 @@ public class GameOfLifeTest {
         assertTrue( result[1][1]);
     }
 
+    @Test
+    void kill_second_row_middle_cell_given_all_top_row_and_left_neighbours_alive()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, true, true},
+            {true, true, false}};
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertFalse( result[1][1]);
+    }
 }
