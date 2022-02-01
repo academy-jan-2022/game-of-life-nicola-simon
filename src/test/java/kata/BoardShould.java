@@ -73,5 +73,13 @@ public class BoardShould {
         assertTrue(neighbours[0]);
     }
 
+    @Test void
+    return_a_correct_neighbour_state_for_right_cell_when_given_two_cells() {
+        Boolean[][] currentMatrix = {{false, true}};
+        var board = new Board(currentMatrix);
+        var neighbours = board.getNeighbours(1, 0);
+        assertEquals(1, neighbours.length);
+        assertFalse(neighbours[0]);
+    }
 
 }
