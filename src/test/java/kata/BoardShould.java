@@ -2,6 +2,8 @@ package kata;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardShould {
@@ -124,8 +126,9 @@ public class BoardShould {
         };
         var board = new Board(currentMatrix);
         var neighbours = board.getNeighbours(1,1);
-        assertEquals(1, neighbours.length);
-        assertTrue(neighbours[0]);
+        var aliveNeighbours = board.filterAliveNeighbours(neighbours);
+        assertEquals(1, aliveNeighbours.length);
+        assertTrue(aliveNeighbours[0]);
     }
 
 }

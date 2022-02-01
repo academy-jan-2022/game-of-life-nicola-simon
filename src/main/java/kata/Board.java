@@ -1,7 +1,9 @@
 package kata;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Board {
     private final Boolean[][] currentState;
@@ -47,6 +49,10 @@ public class Board {
         boolean isOnTopEdge = y == 0;
         boolean isOnBottomEdge = currentState.length - 1 == y;
 
+        if (!isOnTopEdge && !isOnLeftEdge) {
+            neighbours.add(currentState[y-1][x-1]);
+        }
+
         if (!isOnTopEdge) {
             neighbours.add(currentState[y-1][x]);
         }
@@ -61,5 +67,10 @@ public class Board {
         }
 
         return neighbours.toArray(new Boolean[0]);
+    }
+
+    public Boolean[] filterAliveNeighbours(Boolean[] neighbours) {
+        var filteredArray = Arrays.stream(neighbours).filter(x -> x).toList();
+        return filteredArray.toArray(new Boolean[0]);
     }
 }
