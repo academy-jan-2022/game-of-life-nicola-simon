@@ -77,7 +77,7 @@ public class GameOfLifeTest {
             {false, true, true}};
         var result = gameOfLife.checkNewGeneration(currentMatrix);
 
-        assertTrue( result[1][1]);
+        assertFalse( result[1][1]);
     }
 
 }
