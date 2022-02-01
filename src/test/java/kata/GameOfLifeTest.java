@@ -2,8 +2,7 @@ package kata;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameOfLifeTest {
 
@@ -25,6 +24,16 @@ public class GameOfLifeTest {
         var result = gameOfLife.checkNewGeneration(currentMatrix);
 
         assertFalse( result[0][1]);
+    }
+
+    @Test
+    void kepp_middle_cell_alive_with_two_neighbours()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {{true, true, true}};
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[0][1]);
     }
 
 }
