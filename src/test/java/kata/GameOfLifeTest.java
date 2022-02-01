@@ -233,4 +233,19 @@ public class GameOfLifeTest {
         assertTrue( result[0][2]);
     }
 
+    @Test
+    void check_resurrection()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {false, true, true, false, false},
+            {false, false, true, false, true},
+            {true, false, false, true, true}
+        };
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[1][3]);
+
+    }
+
 }
