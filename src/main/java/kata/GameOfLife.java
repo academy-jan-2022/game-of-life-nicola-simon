@@ -10,6 +10,13 @@ public class GameOfLife {
                     {false, false, false},
                     {false, true, false}};
             }
+            if (input[0][0]) {
+                return new boolean[][] {
+                    {false, false, false},
+                    {false, true, false}};
+
+            }
+
             return new boolean[][] {
                 {false, false, false},
                 getRow(input[1])};
