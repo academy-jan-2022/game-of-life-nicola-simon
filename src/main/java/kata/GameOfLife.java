@@ -7,14 +7,13 @@ public class GameOfLife {
         if (input.length == 2 ) {
             if (input[0][1] && input[1][2]){
                 return new boolean[][] {
-                    {false, false, false},
+                    getRow(input[0]),
                     {false, true, false}};
             }
             if (input[0][0]) {
                 return new boolean[][] {
-                    {false, false, false},
+                    getRow(input[0]),
                     {false, true, false}};
-
             }
 
             return new boolean[][] {
