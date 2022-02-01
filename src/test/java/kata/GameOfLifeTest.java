@@ -127,5 +127,28 @@ public class GameOfLifeTest {
         assertTrue( result[1][1]);
     }
 
+    @Test
+    void keep_alive_middle_cell_at_second_row_given_left_corner_and_left_neighbours_alive()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, false, false},
+            {true, true, false}};
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[1][1]);
+    }
+
+    @Test
+    void keep_alive_top_right_cell_given_top_left_and_top_right_neighbours()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, false, true},
+            {false, true, false}};
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[1][1]);
+    }
 
 }
