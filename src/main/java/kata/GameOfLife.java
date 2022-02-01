@@ -21,7 +21,20 @@ public class GameOfLife {
             };
         }
 
-        return new Boolean[][]{getRow(initialBoard.getRowAtIndex(0))};
+        if (initialBoard.getNumberOfColumns() == 3){
+            return new Boolean[][]{
+                {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0), isCellAlive(initialBoard,2,0)}
+            };
+        }
+        if (initialBoard.getNumberOfColumns() == 2){
+            return new Boolean[][]{
+                {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0)}
+            };
+        }
+        return new Boolean[][]{
+            {isCellAlive(initialBoard,0,0)}
+        };
+
     }
 
     private Boolean isCellAlive(Board board,int x, int y) {
@@ -29,14 +42,6 @@ public class GameOfLife {
         int aliveNeighboursCount = board.filterAliveNeighbours(board.getNeighbours(x,y)).length;
         return aliveNeighboursCount > 1
             && aliveNeighboursCount < 4;
-    }
-
-    private Boolean[] getRow(Boolean[] input) {
-        if (input.length == 3 && input[0] && input[2]) {
-            return new Boolean[]{false, true, false};
-        }
-
-        return new Boolean[]{false, false, false};
     }
 
 }
