@@ -34,4 +34,15 @@ public class BoardShould {
         var willBeAlive = board.willBeAlive(0, 1);
         assertFalse(willBeAlive);
     }
+
+    @Test void
+    return_that_a_cell_with_population_below_stays_alive() {
+        Boolean[][] currentMatrix = {
+            {false, true, false},
+            {true, true, false},
+        };
+        var board = new Board(currentMatrix);
+        var willBeAlive = board.willBeAlive(0, 1);
+        assertTrue(willBeAlive);
+    }
 }
