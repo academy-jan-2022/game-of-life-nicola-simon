@@ -10,43 +10,38 @@ public class GameOfLife {
                 getRow(input[2])};
         }
 
-        if (input.length == 3 ) {
-            int totalRowCount = counterAliveNeighboursAtRow(input[0])
-                + counterAliveNeighboursAtRow(input[1])
-                + counterAliveNeighboursAtRow(input[2]);
-
-
-            if (totalRowCount > 2
-                && totalRowCount < 5
-            ){
-                return new boolean[][] {
-                    getRow(input[0]),
-                    {false, true, false},
-                    getRow(input[2])};
-            }
-
-            return new boolean[][] {
-                getRow(input[0]),
-                getRow(input[1]),
-                getRow(input[2])};
-        }
-
-        if (input.length == 2 ) {
-            int topRowCount = counterAliveNeighboursAtRow(input[0]);
-            int middleRowCount = counterAliveNeighboursAtRow(input[1]);
-
-            if (middleRowCount + topRowCount > 2 && middleRowCount + topRowCount < 5){
-                return new boolean[][] {
-                    getRow(input[0]),
-                    {false, true, false}};
-            }
-
-            return new boolean[][] {
-                getRow(input[0]),
-                getRow(input[1])};
+        if (input.length != 1) {
+            return getMiddleCellResult(input);
         }
 
         return new boolean[][]{getRow(input[0])};
+    }
+
+    private int getTotalGameCount(Boolean[][] gameState) {
+        if (gameState.length == 3) {
+            return
+            counterAliveNeighboursAtRow(gameState[0])
+                + counterAliveNeighboursAtRow(gameState[1])
+                + counterAliveNeighboursAtRow(gameState[2]);
+        }
+        return counterAliveNeighboursAtRow(gameState[0]) + counterAliveNeighboursAtRow(gameState[1]);
+
+    }
+
+    private boolean[][] getMiddleCellResult(Boolean[][] gameState) {
+        int totalRowCount = getTotalGameCount(gameState);
+
+        if (totalRowCount > 2
+            && totalRowCount < 5
+        ){
+            return new boolean[][]{
+                getRow(gameState[0]),
+                {false, true, false}};
+        }
+
+        return new boolean[][]{
+            getRow(gameState[0]),
+            getRow(gameState[1])};
     }
 
     private Integer counterAliveNeighboursAtRow(Boolean[] input) {
