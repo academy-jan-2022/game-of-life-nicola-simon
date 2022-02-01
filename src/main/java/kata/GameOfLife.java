@@ -53,7 +53,7 @@ public class GameOfLife {
                 {false, isCellAlive(initialBoard), false}};
         }
 
-        return new boolean[][]{getRow(newGenerationBoard.getRowAtIndex(0))};
+        return new boolean[][]{getRow(initialBoard.getRowAtIndex(0))};
     }
 
     private boolean isCellAlive(Board board) {
