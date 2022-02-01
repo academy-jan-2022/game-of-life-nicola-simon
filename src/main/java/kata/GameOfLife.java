@@ -3,18 +3,18 @@ package kata;
 public class GameOfLife {
 
     public boolean[][] checkNewGeneration(Boolean[][] input) {
+        if (input.length == 3 && input[0][0]) {
+            return new boolean[][] {
+                {true, false, false},
+                getRow(input[1]),
+                getRow(input[2])};
+        }
 
         if (input.length == 3 ) {
             int totalRowCount = counterAliveNeighboursAtRow(input[0])
                 + counterAliveNeighboursAtRow(input[1])
                 + counterAliveNeighboursAtRow(input[2]);
 
-            if (input[0][0]) {
-                return new boolean[][] {
-                    {true, false, false},
-                    getRow(input[1]),
-                    getRow(input[2])};
-            }
 
             if (totalRowCount > 2
                 && totalRowCount < 5
