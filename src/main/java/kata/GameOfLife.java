@@ -10,7 +10,6 @@ public class GameOfLife {
                 getRow(input[2])};
         }
 
-        int totalRowCount = getTotalRowCount(input);
         if (input.length == 3 ) {
 
             return new boolean[][] {
@@ -18,7 +17,6 @@ public class GameOfLife {
                 {false, isCellAlive(input), false},
                 getRow(input[2])};
             }
-
 
         if (input.length == 2 ) {
             return new boolean[][] {
