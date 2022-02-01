@@ -1,5 +1,7 @@
 package kata;
 
+import java.util.ArrayList;
+
 public class GameOfLife {
 
     public Boolean[][] checkNewGeneration(Boolean[][] input) {
@@ -21,18 +23,14 @@ public class GameOfLife {
             };
         }
 
-        if (initialBoard.getNumberOfColumns() == 3){
-            return new Boolean[][]{
-                {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0), isCellAlive(initialBoard,2,0)}
-            };
+        var foo = new ArrayList<Boolean>();
+
+        for (int i = 0; i < initialBoard.getNumberOfColumns(); i++){
+            foo.add(isCellAlive(initialBoard,i,0));
         }
-        if (initialBoard.getNumberOfColumns() == 2){
-            return new Boolean[][]{
-                {isCellAlive(initialBoard,0,0), isCellAlive(initialBoard,1,0)}
-            };
-        }
+
         return new Boolean[][]{
-            {isCellAlive(initialBoard,0,0)}
+            foo.toArray(new Boolean[0])
         };
 
     }
