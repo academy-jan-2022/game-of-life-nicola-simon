@@ -114,4 +114,16 @@ public class GameOfLifeTest {
 
         assertTrue( result[1][1]);
     }
+
+    @Test
+    void keep_alive_middle_cell_at_second_row_given_right_corner_and_left_neighbours_alive()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {false, false, true},
+            {true, true, false}};
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[1][1]);
+    }
 }
