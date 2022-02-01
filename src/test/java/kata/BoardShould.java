@@ -99,9 +99,9 @@ public class BoardShould {
             {false}
         };
         var board = new Board(currentMatrix);
-        var neigbours = board.getNeighbours(0,1);
-        assertEquals(1, neigbours.length);
-        assertTrue(neigbours[0]);
+        var neighbours = board.getNeighbours(0,1);
+        assertEquals(1, neighbours.length);
+        assertTrue(neighbours[0]);
     }
 
     @Test void
@@ -111,9 +111,21 @@ public class BoardShould {
             {false}
         };
         var board = new Board(currentMatrix);
-        var neigbours = board.getNeighbours(0,0);
-        assertEquals(1, neigbours.length);
-        assertFalse(neigbours[0]);
+        var neighbours = board.getNeighbours(0,0);
+        assertEquals(1, neighbours.length);
+        assertFalse(neighbours[0]);
+    }
+
+    @Test void
+    return_one_correct_neighbour_for_bottom_right_cell_given_2_by_2_grid(){
+        Boolean[][] currentMatrix = {
+            {true, false},
+            {false, false}
+        };
+        var board = new Board(currentMatrix);
+        var neighbours = board.getNeighbours(1,1);
+        assertEquals(1, neighbours.length);
+        assertTrue(neighbours[0]);
     }
 
 }
