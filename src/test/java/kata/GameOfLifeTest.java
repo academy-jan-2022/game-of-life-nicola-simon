@@ -202,6 +202,20 @@ public class GameOfLifeTest {
         };
         var result = gameOfLife.checkNewGeneration(currentMatrix);
 
-        assertFalse( result[1][1]);
+        assertTrue( result[1][1]);
+    }
+
+    @Test
+    void test()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, true, false},
+            {true, false, false},
+            {false, false, false}
+        };
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[0][0]);
     }
 }
