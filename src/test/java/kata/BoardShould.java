@@ -72,4 +72,6 @@ public class BoardShould {
         assertEquals(1, neighbours.length);
         assertTrue(neighbours[0]);
     }
+
+
 }
