@@ -1,5 +1,8 @@
 package kata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     private final Boolean[][] currentState;
 
@@ -37,10 +40,11 @@ public class Board {
     }
 
     public Boolean[] getNeighbours(int x, int y) {
-        if (currentState[0].length > 1) {
-            return new Boolean[] { currentState[0][1] };
-        }
+        var neighbours = new ArrayList<Boolean>();
 
-        return new Boolean[0];
+        if (currentState[0].length > 1) {
+            neighbours.add(currentState[y][x+1]);
+        }
+        return neighbours.toArray(new Boolean[0]);
     }
 }
