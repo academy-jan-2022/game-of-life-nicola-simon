@@ -5,11 +5,6 @@ public class GameOfLife {
     public boolean[][] checkNewGeneration(Boolean[][] input) {
 
         if (input.length == 2 ) {
-            if (input[1][0] && input[1][2]){
-                return new boolean[][] {
-                    {false, false, false},
-                    {false, true, false}};
-            }
             if (input[0][1] && input[1][2]){
                 return new boolean[][] {
                     {false, false, false},
@@ -17,7 +12,7 @@ public class GameOfLife {
             }
             return new boolean[][] {
                 {false, false, false},
-                {false, false, false}};
+                getRow(input[1])};
         }
 
         return new boolean[][]{getRow(input[0])};
