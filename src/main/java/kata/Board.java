@@ -2,8 +2,6 @@ package kata;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Board {
     private final Boolean[][] currentState;
@@ -12,16 +10,8 @@ public class Board {
         this.currentState = input;
     }
 
-    public boolean getCell(int x, int y) {
-        return currentState[y][x];
-    }
-
     public int getNumberOfRows() {
         return currentState.length;
-    }
-
-    public Boolean[] getRowAtIndex(int index) {
-        return currentState[index];
     }
 
     public int getNumberOfColumns() {
