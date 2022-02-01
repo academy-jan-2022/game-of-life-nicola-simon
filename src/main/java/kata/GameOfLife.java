@@ -10,11 +10,9 @@ public class GameOfLife {
                 getRow(input[2])};
         }
 
-        if (input.length == 3 ) {
-            int totalRowCount = counterAliveNeighboursAtRow(input[0])
-                + counterAliveNeighboursAtRow(input[1])
-                + counterAliveNeighboursAtRow(input[2]);
+        int totalRowCount = getTotalRowCount(input);
 
+        if (input.length == 3 ) {
 
             if (totalRowCount > 2
                 && totalRowCount < 5
@@ -32,10 +30,7 @@ public class GameOfLife {
         }
 
         if (input.length == 2 ) {
-            int topRowCount = counterAliveNeighboursAtRow(input[0]);
-            int middleRowCount = counterAliveNeighboursAtRow(input[1]);
-
-            if (middleRowCount + topRowCount > 2 && middleRowCount + topRowCount < 5){
+            if (totalRowCount > 2 && totalRowCount < 5){
                 return new boolean[][] {
                     getRow(input[0]),
                     {false, true, false}};
@@ -47,6 +42,19 @@ public class GameOfLife {
         }
 
         return new boolean[][]{getRow(input[0])};
+    }
+
+    private int getTotalRowCount(Boolean[][] input) {
+        if (input.length == 3) {
+            return counterAliveNeighboursAtRow(input[0])
+                + counterAliveNeighboursAtRow(input[1])
+                + counterAliveNeighboursAtRow(input[2]);
+        }
+        if (input.length == 2)  {
+            return counterAliveNeighboursAtRow(input[0])
+            + counterAliveNeighboursAtRow(input[1]);}
+
+        return counterAliveNeighboursAtRow(input[0]);
     }
 
     private Integer counterAliveNeighboursAtRow(Boolean[] input) {
