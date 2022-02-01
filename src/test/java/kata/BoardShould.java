@@ -61,6 +61,7 @@ public class BoardShould {
         var board = new Board(currentMatrix);
         var neighbours = board.getNeighbours(0, 0);
         assertEquals(1, neighbours.length);
+        assertFalse(neighbours[0]);
     }
 
     @Test void
