@@ -43,31 +43,6 @@ public class GameOfLife {
         return false;
     }
 
-    private int getTotalRowCount(Board board) {
-        if (board.getNumberOfRows() == 3) {
-            return counterAliveNeighboursAtRow(board.getRowAtIndex(0))
-                + counterAliveNeighboursAtRow(board.getRowAtIndex(1))
-                + counterAliveNeighboursAtRow(board.getRowAtIndex(2));
-        }
-        if (board.getNumberOfRows() == 2) {
-            return counterAliveNeighboursAtRow(board.getRowAtIndex(0))
-                + counterAliveNeighboursAtRow(board.getRowAtIndex(1));
-        }
-
-        return counterAliveNeighboursAtRow(board.getRowAtIndex(0));
-    }
-
-    private Integer counterAliveNeighboursAtRow(Boolean[] input) {
-        int counter = 0;
-        for (Boolean aBoolean : input) {
-            if (aBoolean) {
-                counter++;
-            }
-        }
-        return counter;
-
-    }
-
     private Boolean[] getRow(Boolean[] input) {
         if (input.length == 3 && input[0] && input[2]) {
             return new Boolean[]{false, true, false};
