@@ -52,7 +52,9 @@ public class Board {
         if (!isOnTopEdge && !isOnLeftEdge) {
             neighbours.add(currentState[y-1][x-1]);
         }
-
+        if (!isOnBottomEdge && !isOnRightEdge){
+            neighbours.add(currentState[y+1][x+1]);
+        }
         if (!isOnTopEdge) {
             neighbours.add(currentState[y-1][x]);
         }
