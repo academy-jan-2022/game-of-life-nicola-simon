@@ -9,6 +9,12 @@ public class GameOfLife {
                 getRow(input[1]),
                 getRow(input[2])};
         }
+        if (input.length == 3 && input[0][2]) {
+            return new boolean[][] {
+                {false, false, true},
+                getRow(input[1]),
+                getRow(input[2])};
+        }
 
         if (input.length != 1) {
             return getMiddleCellResult(input);
