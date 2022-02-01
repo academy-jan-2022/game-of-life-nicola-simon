@@ -43,6 +43,12 @@ public class Board {
         var neighbours = new ArrayList<Boolean>();
         boolean isOnRightEdge = currentState[0].length - 1 == x;
         boolean isOnLeftEdge = x == 0;
+        boolean isOnTopEdge = y == 0;
+
+        if (!isOnTopEdge) {
+            neighbours.add(currentState[y-1][x]);
+        }
+
         if (!isOnRightEdge) {
             neighbours.add(currentState[y][x+1]);
         }
