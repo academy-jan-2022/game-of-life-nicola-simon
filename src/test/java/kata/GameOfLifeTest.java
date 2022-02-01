@@ -46,4 +46,14 @@ public class GameOfLifeTest {
         assertFalse( result[0][1]);
     }
 
+    @Test
+    void kill_all_cells_given_only_two_neighbours_alive_part_2()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {{true, true, false}};
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertFalse( result[0][1]);
+    }
+
 }
