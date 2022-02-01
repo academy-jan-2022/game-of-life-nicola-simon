@@ -2,17 +2,13 @@ package kata;
 
 public class GameOfLife {
 
-
-
     public Boolean[][] checkNewGeneration(Boolean[][] input) {
 
         var initialBoard = new Board(input);
-        Boolean[][] nextMatrix = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
-        var newGenerationBoard = new Board(nextMatrix);
 
         if (initialBoard.getNumberOfRows() == 3 && initialBoard.getCell(0, 0)) {
             return new Boolean[][]{
-                {isCellAlive(initialBoard), false, false},
+                {newIsCellAlive(initialBoard,0,0), false, false},
                 getRow(initialBoard.getRowAtIndex(1)),
                 getRow(initialBoard.getRowAtIndex(2))
             };
@@ -38,9 +34,20 @@ public class GameOfLife {
     }
 
     private Boolean isCellAlive(Board board) {
+
         int totalRowCount = getTotalRowCount(board);
         if (totalRowCount > 2
             && totalRowCount < 5) {
+            return true;
+        }
+        return false;
+    }
+
+    private Boolean newIsCellAlive(Board board,int x, int y) {
+
+        int aliveNeighboursCount = board.filterAliveNeighbours(board.getNeighbours(x,y)).length;
+        if (aliveNeighboursCount > 1
+            && aliveNeighboursCount < 4) {
             return true;
         }
         return false;
@@ -78,10 +85,5 @@ public class GameOfLife {
 
         return new Boolean[]{false, false, false};
     }
-
-//    private Boolean[] getRowNew(Boolean[][] input) {
-//        return new Boolean[]{false, isCellAlive(input), false};
-//    }
-
 
 }
