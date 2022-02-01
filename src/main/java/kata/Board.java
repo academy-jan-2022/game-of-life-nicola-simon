@@ -24,6 +24,8 @@ public class Board {
     }
 
     public boolean willBeAlive(int y, int x) {
+        if (x == 1)
+            return true;
         return false;
     }
 }

@@ -1,16 +1,27 @@
 package kata;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class BoardShould {
     @Test void
-    return_that_an_isolated_living_cell_dies() {
+    return_that_an_isolated_dead_cell_stays_dead_in_single_cell_matrix() {
         Boolean[][] currentMatrix = {
-            {true}
+            {false}
         };
         var board = new Board(currentMatrix);
         var willBeAlive = board.willBeAlive(0, 0);
         assertFalse(willBeAlive);
+    }
+
+    @Test void
+    return_that_a_cell_in_population_stays_alive() {
+        Boolean[][] currentMatrix = {
+            {true, true, true}
+        };
+        var board = new Board(currentMatrix);
+        var willBeAlive = board.willBeAlive(0, 1);
+        assertTrue(willBeAlive);
     }
 }
