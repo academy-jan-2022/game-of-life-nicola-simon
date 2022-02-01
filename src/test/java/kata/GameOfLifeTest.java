@@ -206,7 +206,7 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void kill_first_row_left_cell_given_middle_left_and_middle_top_neighbours_alive()
+    void keep_alive_first_row_left_cell_given_middle_left_and_middle_top_neighbours_alive()
     {
         var gameOfLife = new GameOfLife();
         Boolean[][] currentMatrix = {
