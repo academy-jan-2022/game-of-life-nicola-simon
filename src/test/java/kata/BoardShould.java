@@ -174,4 +174,19 @@ public class BoardShould {
         assertTrue(aliveNeighbours[0]);
     }
 
+    @Test void
+    return_eight_correct_neighbour_for_middle_cell_given_3_by_3_grid(){
+        Boolean[][] currentMatrix = {
+            {true, true, false},
+            {true, false, true},
+            {true, false, true}
+        };
+        var board = new Board(currentMatrix);
+        var neighbours = board.getNeighbours(1,1);
+        var aliveNeighbours = board.filterAliveNeighbours(neighbours);
+        assertEquals(8, neighbours.length);
+        assertEquals(6, aliveNeighbours.length);
+        assertTrue(aliveNeighbours[0]);
+    }
+
 }
