@@ -10,15 +10,9 @@ public class GameOfLife {
         Boolean[][] newBoard = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
 
         for (int z = 0; z < initialBoard.getNumberOfRows(); z++){
-            var newRow = new ArrayList<Boolean>();
-
             for (int i = 0; i < initialBoard.getNumberOfColumns(); i++){
-                newRow.add(isCellAlive(initialBoard,i,z));
+                newBoard[z][i]=(isCellAlive(initialBoard,i,z));
             }
-
-            newBoard[z]=(
-                newRow.toArray(new Boolean[0])
-            );
         }
 
         return newBoard;
