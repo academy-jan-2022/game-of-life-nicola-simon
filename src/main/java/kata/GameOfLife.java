@@ -36,11 +36,8 @@ public class GameOfLife {
     private Boolean isCellAlive(Board board,int x, int y) {
 
         int aliveNeighboursCount = board.filterAliveNeighbours(board.getNeighbours(x,y)).length;
-        if (aliveNeighboursCount > 1
-            && aliveNeighboursCount < 4) {
-            return true;
-        }
-        return false;
+        return aliveNeighboursCount > 1
+            && aliveNeighboursCount < 4;
     }
 
     private Boolean[] getRow(Boolean[] input) {
