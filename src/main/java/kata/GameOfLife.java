@@ -28,7 +28,7 @@ public class GameOfLife {
 
         int aliveNeighboursCount = board.filterAliveNeighbours(board.getNeighbours(x,y)).length;
 
-        if (board.getCell(y,x)){
+        if (board.getCell(x,y)){
             return aliveNeighboursCount == 2
                 || aliveNeighboursCount == 3;
         }

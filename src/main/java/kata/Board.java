@@ -10,7 +10,7 @@ public class Board {
         this.currentState = input;
     }
 
-    public Boolean getCell(int y, int x){
+    public Boolean getCell(int x, int y){
         return this.currentState[y][x];
     }
 
