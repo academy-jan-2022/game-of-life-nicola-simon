@@ -261,4 +261,25 @@ public class GameOfLifeTest {
 
     }
 
+    @Test
+    void return_correct_complex_board()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, false, false, false},
+            {true, true, false, true},
+            {true, false, false, true},
+            {true, false, true, false},
+            {true, false, true, true},
+            {true, false, true, true},
+
+        };
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertTrue( result[0][0]);
+        assertTrue( result[1][2]);
+        assertFalse( result[4][2]);
+        assertFalse( result[3][3]);
+    }
+
 }
