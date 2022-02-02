@@ -4,7 +4,6 @@ public class GameOfLife {
 
     Board initialBoard;
 
-
     public Boolean[][] checkNewGeneration(Boolean[][] input) {
 
         initialBoard = new Board(input);
@@ -15,20 +14,19 @@ public class GameOfLife {
         }
 
         return newBoard;
-
     }
 
-    private void rowConstructor( Boolean[][] newBoard, int z) {
+    private void rowConstructor( Boolean[][] newBoard, int rowNumber) {
         for (int i = 0; i < initialBoard.getNumberOfColumns(); i++){
-            newBoard[z][i]=(isCellAlive(initialBoard,i, z));
+            newBoard[rowNumber][i]=(willCellBeAlive(i, rowNumber));
         }
     }
 
-    private Boolean isCellAlive(Board board,int x, int y) {
+    private Boolean willCellBeAlive(int x, int y) {
 
-        int aliveNeighboursCount = board.filterAliveNeighbours(board.getNeighbours(x,y)).length;
+        int aliveNeighboursCount = initialBoard.filterAliveNeighbours(initialBoard.getNeighbours(x,y)).length;
 
-        if (board.getCell(x,y)){
+        if (initialBoard.getCell(x,y)){
             return aliveNeighboursCount == 2
                 || aliveNeighboursCount == 3;
         }
