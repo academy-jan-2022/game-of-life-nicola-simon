@@ -27,8 +27,12 @@ public class GameOfLife {
     private Boolean isCellAlive(Board board,int x, int y) {
 
         int aliveNeighboursCount = board.filterAliveNeighbours(board.getNeighbours(x,y)).length;
-        return aliveNeighboursCount > 1
-            && aliveNeighboursCount < 4;
+
+        if (board.getCell(y,x)){
+            return aliveNeighboursCount == 2
+                || aliveNeighboursCount == 3;
+        }
+        return aliveNeighboursCount == 3;
     }
 
 }

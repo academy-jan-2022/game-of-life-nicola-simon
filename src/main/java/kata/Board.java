@@ -10,6 +10,10 @@ public class Board {
         this.currentState = input;
     }
 
+    public Boolean getCell(int y, int x){
+        return this.currentState[y][x];
+    }
+
     public int getNumberOfRows() {
         return currentState.length;
     }
