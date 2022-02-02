@@ -22,7 +22,6 @@ public class Board {
         return currentState[0].length;
     }
 
-
     public Boolean[] getNeighbours(int x, int y) {
         var neighbours = new ArrayList<Boolean>();
 

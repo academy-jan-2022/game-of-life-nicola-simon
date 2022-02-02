@@ -9,16 +9,16 @@ public class GameOfLife {
         initialBoard = new Board(input);
         Boolean[][] newBoard = new Boolean[initialBoard.getNumberOfRows()][initialBoard.getNumberOfColumns()];
 
-        for (int z = 0; z < initialBoard.getNumberOfRows(); z++){
-            rowConstructor(newBoard, z);
+        for (int rowIndex = 0; rowIndex < initialBoard.getNumberOfRows(); rowIndex++){
+            rowConstructor(newBoard, rowIndex);
         }
 
         return newBoard;
     }
 
     private void rowConstructor( Boolean[][] newBoard, int rowNumber) {
-        for (int i = 0; i < initialBoard.getNumberOfColumns(); i++){
-            newBoard[rowNumber][i]=(willCellBeAlive(i, rowNumber));
+        for (int columnIndex = 0; columnIndex < initialBoard.getNumberOfColumns(); columnIndex++){
+            newBoard[rowNumber][columnIndex]=(willCellBeAlive(columnIndex, rowNumber));
         }
     }
 
