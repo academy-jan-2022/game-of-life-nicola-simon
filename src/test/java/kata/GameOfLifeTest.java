@@ -234,17 +234,30 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void check_resurrection()
+    void check_cell_comes_to_life_with_three_live_neighbours()
     {
         var gameOfLife = new GameOfLife();
         Boolean[][] currentMatrix = {
-            {false, true, true, false, false},
-            {false, false, true, false, true},
-            {true, false, false, true, true}
+            {true, true},
+            {true, false},
         };
         var result = gameOfLife.checkNewGeneration(currentMatrix);
 
-        assertTrue( result[1][3]);
+        assertTrue( result[1][1]);
+
+    }
+
+    @Test
+    void check_cell_stays_dead_with_two_live_neighbours()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, false},
+            {true, false},
+        };
+        var result = gameOfLife.checkNewGeneration(currentMatrix);
+
+        assertFalse( result[1][1]);
 
     }
 
