@@ -262,7 +262,7 @@ public class GameOfLifeTest {
     }
 
     @Test
-    void return_correct_complex_board()
+    void return_correct_single_generation_complex_board()
     {
         var gameOfLife = new GameOfLife();
         Boolean[][] currentMatrix = {
@@ -280,6 +280,22 @@ public class GameOfLifeTest {
         assertTrue( result[1][2]);
         assertFalse( result[4][2]);
         assertFalse( result[3][3]);
+    }
+
+    @Test
+    void return_correct_dual_generation_complex_board()
+    {
+        var gameOfLife = new GameOfLife();
+        Boolean[][] currentMatrix = {
+            {true, false, true, false},
+            {true, false, false, true},
+        };
+        /* {false, true, false, false},
+        {false, true, false, false}*/
+        var twoGenerationResult = gameOfLife.checkNewGeneration(currentMatrix);
+
+
+        assertFalse( twoGenerationResult[0][1]);
     }
 
 }
