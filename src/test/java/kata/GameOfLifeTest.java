@@ -292,9 +292,10 @@ public class GameOfLifeTest {
         };
         /* {false, true, false, false},
         {false, true, false, false}*/
-        var twoGenerationResult = gameOfLife.checkNewGeneration(currentMatrix);
+        var oneGenerationResult = gameOfLife.checkNewGeneration(currentMatrix);
+        var twoGenerationResult = gameOfLife.checkNewGeneration(oneGenerationResult);
 
-
+        assertFalse( twoGenerationResult[0][0]);
         assertFalse( twoGenerationResult[0][1]);
     }
 
